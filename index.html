@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NavLoop: a navigation harness connecting visual observations, history, action execution, feedback, and task progress. Three navigation task videos.">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>NavLoop — A Harness for Long-Horizon Visual Navigation</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=native-video-ratio-2">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#main">NavLoop<span>.</span></a>
+    <nav aria-label="Main navigation"><a href="#videos">Videos</a><a href="#overview">Research Question</a><a href="#harness">Proposed Solution</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero section-width" aria-labelledby="hero-title">
+      <h1 id="hero-title">NavLoop<span>.</span></h1>
+      <p class="project-title">A Harness for Long-Horizon Visual Navigation</p>
+      <p class="hero-description">Connecting visual observations, historical records, action execution, feedback, and task progress in a continuous observation–decision–execution–feedback loop.</p>
+    </section>
+
+    <section id="videos" class="section-width videos" aria-labelledby="videos-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / VIDEOS</p><h2 id="videos-title">Navigation in action.</h2></div><p>Select a video to watch.</p></div>
+      <div class="video-selector"><label for="video-task">Select task</label><select id="video-task"><option value="assets/飞书20261018-200036.mp4">Task 1</option><option value="assets/飞书20261018-200050.mp4">Task 2</option><option value="assets/飞书20261018-200055.mp4">Task 3</option></select></div>
+      <figure class="selected-video">
+        <h3 id="video-title">Task 1</h3>
+        <video id="navigation-video" controls muted playsinline preload="metadata" aria-labelledby="video-title" aria-describedby="video-caption" src="assets/飞书20261018-200036.mp4">Your browser does not support embedded video.</video>
+        <figcaption id="video-caption"><span id="video-label">Task 1</span><a id="video-link" href="assets/飞书20261018-200036.mp4">Open video ↗</a></figcaption>
+      </figure>
+    </section>
+
+    <section id="overview" class="section-width text-section" aria-labelledby="overview-title">
+      <p class="eyebrow section-label">02 / RESEARCH QUESTION</p>
+      <div><h2 id="overview-title">Visual navigation over an extended task.</h2>
+        <p>Visual navigation requires an agent to understand its surroundings from real-time images and reach a specified goal through continuous action in an unfamiliar environment. For example, the seemingly simple instruction “Start on the first floor, find the kitchen on the second floor, and enter it” involves several stages: room recognition, route exploration, stair traversal, movement between floors, and goal confirmation. The agent must not only determine what to do next, but also remember the areas it has already explored, adjust its strategy based on the outcomes of its actions, and continue making progress throughout an extended task.</p>
+        <p>Although GPT-6-astra has strong visual understanding and reasoning capabilities and can identify key elements in an environment and generate action instructions, directly invoking the model is not sufficient to ensure successful navigation. Simply providing the current image to the model and executing its proposed action can overlook continuity between actions: the model may repeatedly explore the same areas, continue attempting ineffective movements after becoming blocked, or declare the task complete before reaching the destination. To support long-horizon navigation more reliably, the model’s single-step understanding and decision-making capabilities must therefore be supported by historical context, execution feedback, and task state management.</p>
+      </div>
+    </section>
+
+    <section id="harness" class="harness-section" aria-labelledby="harness-title"><div class="section-width text-section">
+      <p class="eyebrow section-label">03 / PROPOSED SOLUTION</p>
+      <div><h2 id="harness-title">Sustaining the observation–decision–execution–feedback loop.</h2>
+        <p>To address this problem, our main contribution is a navigation harness for GPT-6-astra: a runtime framework that supports sustained task execution. The framework connects visual observations, historical records, action execution, outcome feedback, and task progress management in an observation–decision–execution–feedback loop. This allows the model to choose its next action in light of prior experience and revise its strategy based on actual execution outcomes.</p>
+        <p>In addition, independent evaluation and visual replay are used to verify both the navigation process and the final outcome. Together, these components organize the model’s single-step capabilities into a navigation system that can operate continuously, be verified, and improve through iteration.</p>
+      </div>
+    </div></section>
+  </main>
+  <footer class="section-width"><a class="brand" href="#main">NavLoop<span>.</span></a><p>A Harness for Long-Horizon Visual Navigation</p><a href="#main">Back to top ↑</a></footer>
+</body>
+</html>
